@@ -5,6 +5,7 @@
  <PsystatusGenderCodes/>
  <PsystatusSyndrome/>
  <!-- <PsystatusExtra/> -->
+ <PsystatusFooter/>
  </div>
 </div>
  

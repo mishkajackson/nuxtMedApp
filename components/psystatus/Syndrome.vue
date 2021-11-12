@@ -8,43 +8,43 @@
                   <div>
                     <input
                       type="radio"
-                      @input="setSyndrom"
                       id="syndromOne"
                       name="syndrom"
+                      @input="setSyndrom"
                       value="syndromOne"
                     />
-                    <label for="syndromOne">{{ $store.state.static.syndrom1 }}</label>
+                    <label for="syndromOne">{{ syndromOne }}</label>
 
                     <input
                       type="radio"
-                      @input="setSyndrom"
                       id="syndromTwo"
                       name="syndrom"
+                      @input="setSyndrom"
                       value="syndromTwo"
                     />
-                    <label for="syndromTwo">{{ $store.state.static.syndrom2 }}</label>
+                    <label for="syndromTwo">{{ syndromTwo }}</label>
 
                     <input
                       type="radio"
-                      @input="setSyndrom"
                       id="syndromThree"
                       name="syndrom"
+                      @input="setSyndrom"
                       value="syndromThree"
                     />
-                    <label for="syndromThree">{{ $store.state.static.syndrom3 }}</label>
+                    <label for="syndromThree">{{ syndromThree }}</label>
 
                     <input
                       type="radio"
-                      @input="setSyndrom"
                       id="syndromFour"
                       name="syndrom"
+                      @input="setSyndrom"
                       value="syndromFour"
                     />
-                    <label for="syndromFour">{{ $store.state.static.syndrom4 }}</label>
+                    <label for="syndromFour">{{ syndromFour }}</label>
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
     </div>
     </div>
 </template>
@@ -52,12 +52,62 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      syndromOne: "",
+      syndromTwo: "",
+      syndromThree: "",
+      syndromFour: "",
+      syndromFive: "",
+      syndromSix: "",
+    };
+  },
+  computed: {
+    todos () {
+      return this.$store.state.static.codes
+    }
+  },
+  watch: {
+    todos() {
+    this.syndromSet()
+    }
   },
   methods: {
     setSyndrom(event) {
       this.$store.commit("static/syndrome", event.target.value);
       console.log(this.$store.state.static.syndrome);
+    },
+    syndromSet() {
+      this.syndrom = "";
+      this.syndromOne =
+        this.syndromTwo =
+        this.syndromThree =
+        this.syndromFour =
+        this.syndromFive =
+          "";
+      if (this.$store.state.static.codes === "F01") {
+        this.syndromOne = "Легкая степень";
+        this.syndromTwo = "Умеренная степень";
+        this.syndromThree = "Тяжелая степень";
+        this.syndromFour = "Недифференцированная";
+      }
+      if (this.$store.state.static.codes === "F06") {
+        this.syndromOne = "Легкий ПОС";
+        this.syndromTwo = "Умеренный ПОС";
+        this.syndromThree = "Выраженный ПОС";
+        this.syndromFour = "Недифференцированный";
+      }
+      if (this.$store.state.static.codes === "F20") {
+        this.syndromOne = "Легкий дефект";
+        this.syndromTwo = "Умеренный дефект";
+        this.syndromThree = "Выраженный дефект";
+        this.syndromFour = "Недифференцированный";
+      }
+      if (this.$store.state.static.codes === "F70") {
+        this.syndromOne = "Легкая степень";
+        this.syndromTwo = "Умеренная степень";
+        this.syndromThree = "Тяжелая степень";
+        this.syndromFour = "Недифференцированная";
+      }
     },
   },
 };
