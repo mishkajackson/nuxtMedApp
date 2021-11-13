@@ -125,7 +125,9 @@
 export default {
   
   data() {
-    return {};
+    return {
+
+    };
   },
   methods: {
     genderChange(event) {
@@ -136,6 +138,7 @@ export default {
       this.$store.commit("static/codes", event.target.value);
       console.log(this.$store.state.static.codes);
     },
+   
   },
 };
 </script>

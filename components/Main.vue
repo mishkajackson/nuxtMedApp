@@ -11,7 +11,13 @@
  
 </template>
 <script>
-
+export default {
+  async fetch ({ store, params }) {
+    let { data } = await http.get('http://a0596688.xsph.ru/patients/syndromOne/Male/F01')
+    console.log(data)
+    store.commit("status/psystatus", res.data)
+  }
+}
 </script>
 
 <style scoped>

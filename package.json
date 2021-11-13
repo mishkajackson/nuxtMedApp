@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "nuxt-clipboard": "^0.0.6"
   },
   "devDependencies": {
     "fibers": "^5.0.0",
