@@ -3,7 +3,7 @@
 export const state = () => ({
         gender: 'Male',
         codes: '',
-        syndrome: 'syndromOne',
+        syndrome: '',
     })
 export const mutations = {
         gender(state, gender) {

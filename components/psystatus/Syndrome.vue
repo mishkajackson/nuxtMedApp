@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div v-if="$store.state.static.codes != '' && $store.state.static.codes != 'Z00'">
+      
+         <div v-if="$store.state.static.codes != '' && $store.state.static.codes != 'Z00'">
+           <div class="animate__animated animate__fadeInUp">
       <h2 style="margin-top: 10px; margin-bottom: 1px">Синдром</h2>
             <div class="col-12">
               <div class="wrapper">
@@ -45,12 +47,19 @@
                 </div>
               </div>
             </div>
+
+      </div>
+       
     </div>
+
+
+        
     </div>
 </template>
 
 <script>
 export default {
+  
   data() {
     return {
       syndromOne: "",
@@ -124,7 +133,7 @@ export default {
 }
 .radio-syndrom label {
   background-color: rgba(255, 255, 255, 0.049);
-  color: rgba(55, 0, 255, 0.468);
+  color: rgb(106, 104, 104);
   font-weight: 150;
   border: 1px solid #0a6ed122;
   border-radius: 15px;
@@ -160,10 +169,16 @@ border: 1px solid rgba(0, 0, 255, 0.168);
   cursor: pointer;
   width: 330px;
 }
+.radio-syndrom input[type="radio"] + label {
+  margin-left: 14px;
+  
+}
+
 .radio-syndrom input[type="radio"]:checked + label {
   background: linear-gradient(79deg, rgba(0, 0, 255, 0.568), rgba(0, 38, 255, 0.44));
   border: 1px solid rgba(0, 0, 255, 0.168);
   box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.1);
   color: white;
+  
 }
 </style>

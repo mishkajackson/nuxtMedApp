@@ -5,6 +5,7 @@
 <style>
 * {
   box-sizing: border-box;
+  outline: none !important;
   
 }
 
@@ -12,6 +13,15 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100;
   background: #fcfcfc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  font-weight: 300;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 
 }
 
@@ -75,7 +85,10 @@ h2 {
   font-weight: 100;
   margin-left: 20px;
   margin-bottom: -12px;
-  color: #8d8d8d;
+  color: #000000;
+}
+h1 {
+  text-align: center;
 }
 ul {
   list-style-type: none;
@@ -95,7 +108,7 @@ a {
 }
 .wrapper {
   display: inline-flex;
-  background:  rgba(255, 255, 255, 0.6);
+  background:  rgba(255, 255, 255, 1);
   height: 100%;
   width: 100%;
   padding: 10px;
@@ -104,14 +117,7 @@ a {
   border-radius: 10px;
   box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.1);
   margin-bottom: 5px;
+  
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.6s;
-}
-.fade-enter, .fade-leave-to  {
-  opacity: 0;
-  position: absolute;
-  width: 98%;
-}
+
 </style>

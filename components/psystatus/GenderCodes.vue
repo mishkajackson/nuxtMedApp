@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="row">
+      
+
+   
+ <div class="row">
       <h2 style="margin-top: 0px; margin-bottom: 1px">Пол</h2>
       <div class="col-4">
         <div class="wrapper">
@@ -26,6 +29,10 @@
         </div>
       </div>
     </div>
+
+
+
+   
     <!-- ШИФР -->
     <div class="row">
       <h2 style="margin-top: 10px; margin-bottom: 1px">Диагноз</h2>
@@ -123,7 +130,7 @@
 
 <script>
 export default {
-  
+   
   data() {
     return {
 
@@ -169,11 +176,12 @@ export default {
 .radio-toolbar input[type="radio"] {
   opacity: 0;
   position: fixed;
+  
 }
 .radio-toolbar label {
   background-color: rgba(255, 255, 255, 0.049);
-  color: rgba(55, 0, 255, 0.468);
-  font-weight: 250;
+  color: rgb(106, 104, 104);
+  font-weight: 150;
   border: 1px solid #0a6ed122;
   border-radius: 20%;
   padding: 11px 11px;
@@ -190,12 +198,14 @@ export default {
 .radio-toolbar label:hover {
   border: 1px solid rgba(0, 0, 255, 0.168);
   background-color:rgba(0, 0, 255, 0.068);
+  
 }
 .radio-toolbar input[type="radio"]:checked + label {
   border: 1px solid rgba(0, 0, 255, 0.168);
   box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.1);
   color: white;
   background: linear-gradient(79deg, rgba(0, 0, 255, 0.568), rgba(0, 38, 255, 0.44));
+  
 }
 
 </style>

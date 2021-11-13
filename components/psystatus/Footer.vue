@@ -1,7 +1,9 @@
 <template>
     <div>
+        <div v-if="$store.state.static.codes != ''">
+                     <div class="animate__animated animate__bounceInUp">
 
-        <div class="footer btn-border">
+  <div class="footer btn-border">
             
       <button
         v-on:click="clipBoard"
@@ -14,7 +16,11 @@
       <br>
       <button class="btn" v-on:click="edit" >Редактировать</button>
     </div>
+            </div>
+      
     </div>
+        </div>
+
 </template>
 <script>
 
@@ -50,7 +56,9 @@ export default ({
       setTimeout(this.symbolcheck, 300);
       setTimeout(this.deactiveBtn, 1400);
       this.$copyText(this.resultat.join(' ')).then(
-        function (e) {},
+        function (e) {
+          console.log('Cкопировано')
+        },
         function (e) {
           alert("Can not copy");
           console.log(e);
@@ -127,13 +135,13 @@ var self = this;
 <style scoped>
 .footer {
   position: fixed;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(13px);
   bottom: 0px;
   left: 0px;
   right: 0px;
   margin-bottom: 0px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.236);
+  background-color: rgba(255, 255, 255, 0.996);
   border-radius: 50px 50px 0px 0px;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
 }
@@ -142,7 +150,6 @@ var self = this;
   content: "";
   color: white;
   border: none;
-  outline: none !important;
   width: 280px;
   height: 50px;
   border-radius: 40px;
@@ -163,5 +170,14 @@ var self = this;
   width: 100px;
   border: 1px solid #24964e;
   font-size: 26px;
+}
+.animate__animated.animate__bounceInUp {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  backdrop-filter: blur(110px);
+
+  --animate-duration: 2.2s;
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
     <div>
-         <div v-if="diagnos !='Z00'">
+
+        <div v-if="$store.state.static.codes != '' && $store.state.static.codes != 'Z00'">
+          <div class="animate__animated animate__fadeInUp">
 <h2 style="margin-top: 10px; margin-left: 20px">Дополнительно</h2>
     <div class="additionally">
       <div  class="col-12">
@@ -199,7 +201,26 @@
     </div>
     </div>
     </div>
+        </div>
+
 </template>
+<script>
+export default ({
+  data() {
+    return {
+      isOpen1: false,
+      isOpen2: false,
+      isOpen3: false,
+      isOpen4: false,
+      isOpen5: false,
+      opt1: true, opt2: false, opt3: false, opt4: false, opt5: false, opt6: false, opt7: false, opt8: false,
+      opt9: false,opt10: false, opt11: false, opt12: false, opt13: false,opt14: false, opt15: false, opt16: false,
+      opt17: false,opt18: false, opt19: false, opt20: false, opt21: false,opt22: false, opt23: false, opt24: false,
+    }
+    
+  },
+})
+</script>
 
 <style scoped>
 .btn-collapse {
@@ -220,12 +241,12 @@
   transition: 0.5s 0s;
 }
 .btn-collapse:hover {
-  background-color: #0a6ed112;
-  color: #0864c1;
+  background: linear-gradient(79deg, rgba(0, 0, 255, 0.05), rgba(0, 38, 255, 0.05));
+  color: #3f08c192;
 }
 .collapse_active {
-   background-color: #0a6ed109;
-  color: #0864c1;
+  background: linear-gradient(79deg, rgba(0, 0, 255, 0.03), rgba(0, 38, 255, 0.03));
+  color: #3f08c192;
 }
 .arrow {
   position: absolute;
@@ -312,7 +333,7 @@
 }
 
 .checkbox-ios input[type="checkbox"]:checked + .checkbox-ios-switch {
-  background: #0a6ed1;
+  background: linear-gradient(79deg, rgba(0, 0, 255, 0.568), rgba(0, 38, 255, 0.44));
 }
 .checkbox-ios input[type="checkbox"]:checked + .checkbox-ios-switch:before {
   transform: translateX(18px);
@@ -331,6 +352,8 @@
   margin-bottom: 22px;
 }
 .span-toggle {
+  color: rgb(106, 104, 104);
+  font-weight: 150;
   font-size: 16px;
   margin-right: 111px;
   margin-left: 12px;
