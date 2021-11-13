@@ -1,11 +1,13 @@
 <template>
   <div>
+    <h1>Редактор</h1>
+    <div class="main1">
       <h2>{{nameStatus[index]}}</h2>
     <div class="row wrapper">
       <div class="col-2"><button class="btn" v-on:click="previous">&#8249;</button></div>
       <div class="col-8">
         <div v-for="(states, index) in state" :key="index">
-            <textarea-autosize
+            <textarea
   placeholder="Введите что-нибудь..."
   ref="myTextarea"
   v-model="state[index]"
@@ -17,6 +19,8 @@
       </div>
       <div class="col-2"><button class="btn" v-on:click="next">&#8250;</button></div>
     </div>
+    </div>
+      
 
      <div class="footer btn-border">
       <button
@@ -60,7 +64,7 @@ export default {
     },
     loadStatus() {
       var self = this;
-      fetch(`http://a0596688.xsph.ru/patients/${this.$store.state.static.syndrome}/${this.$store.state.static.gender}/${this.$store.state.static.codes}`)
+      fetch(`https://medappapi.ru/patients/${this.$store.state.static.syndrome}/${this.$store.state.static.gender}/${this.$store.state.static.codes}`)
       .then(function (response) {
         return response.json()
       })
@@ -115,7 +119,7 @@ export default {
       obj[obj2] = this.psystatus[i].join('; ');
     };
        try {
-  const response = await fetch(`http://a0596688.xsph.ru/patients/update/${this.syndrom}/${this.gender}/${this.diagnos}`, {
+  const response = await fetch(`https://medappapi.ru/patients/update/${this.$store.state.static.syndrome}/${this.$store.state.static.gender}/${this.$store.state.static.codes}`, {
     method: 'PUT',
     body: JSON.stringify(obj), // данные могут быть 'строкой' или {объектом}!
     headers: {
@@ -142,7 +146,7 @@ export default {
     deactiveBtn() {
       this.isActive = false;
       this.saveBtn = "Сохранить";
-      this.editin();
+      this.$router.push('/')
     },
   },
   beforeMount() {
@@ -154,22 +158,19 @@ export default {
 <style scoped>
 
 h2 {
- font-size: 20px;
-  font-weight: 450;
   margin-left: 20px;
   margin-bottom: 18px;
-  color: #054483;
 }
 textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 350;
-  color: #054483;
+  color: rgb(106, 104, 104);
   width: 100%;
   font-size: 16px;
   padding: 10px 20px;
   margin: 2px 0;
   box-sizing: border-box;
-  border: 2px solid #0a6ed12d;
+  border: 1px solid #0000000b;
   border-radius: 10px;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.09);
   transition: 300ms;
@@ -178,23 +179,12 @@ input:hover {
     border: 2px solid #0a6ed193;
 }
 .wrapper {
-  display: inline-flex;
-position: relative;
-  background: #fff;
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-  align-items: left;
-  justify-content: space-evenly;
-  border-radius: 10px;
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.15);
-  margin-bottom: 5px;
-  
+margin-bottom: 450px;
 }
 .btn {
     height: 100%;
-    width: 50px;
-    color: #0a6ed169;
+    width: 60px;
+    color: #6e0ad169;
     background-color: white;
     border: none;
     font-size: 50px;
@@ -202,15 +192,15 @@ position: relative;
     
 }
 .btn:hover {
-    color: #0a6ed1;
+    color: #6e0ad1ad;
 }
 
 
 .btn-save {
-background-color: #0a6ed1;
+  background: linear-gradient(79deg, rgba(0, 0, 255, 0.568), rgba(0, 38, 255, 0.44));
   content: "";
   color: white;
-  border: 1px solid #0a6ed1;
+  border: none;
   width: 280px;
   height: 50px;
   border-radius: 40px;
@@ -218,18 +208,18 @@ background-color: #0a6ed1;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   margin: 18px 0px 8px;
   transition-duration: 0.4s;
   cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.1);
   transition: 0.5s 0s;
   }
   .btn_active {
-  background-color: #24964e;
+  background: #24964e;
   color: white;
   width: 100px;
-  border: 1px solid #24964e;
+  border: none;
   font-size: 26px;
 }
 .footer {

@@ -83,7 +83,7 @@ export default ({
        }else {
          if (this.$store.state.static.codes === 'Z00') {
         var self = this;
-      await fetch(`http://a0596688.xsph.ru/patients/norma/${this.$store.state.static.gender}/${this.$store.state.static.codes}`)
+      await fetch(`https://medappapi.ru/patients/norma/${this.$store.state.static.gender}/${this.$store.state.static.codes}`)
       .then(function (response) {
         return response.json()
       })
@@ -102,7 +102,7 @@ export default ({
       })
       } else {
 var self = this;
-      await fetch(`http://a0596688.xsph.ru/patients/${this.$store.state.static.syndrome}/${this.$store.state.static.gender}/${this.$store.state.static.codes}`)
+      await fetch(`https://medappapi.ru/patients/${this.$store.state.static.syndrome}/${this.$store.state.static.gender}/${this.$store.state.static.codes}`)
       .then(function (response) {
         return response.json()
       })

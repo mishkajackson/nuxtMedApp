@@ -1,5 +1,5 @@
 <template>
-  <Nuxt />
+  <Nuxt keep-alive />
 </template>
 
 <style>
@@ -105,6 +105,11 @@ a {
   display: flex;
   flex-direction: column;
   height: 115vh;
+}
+.main1 {
+  display: flex;
+  flex-direction: column;
+  height: 110vh;
 }
 .wrapper {
   display: inline-flex;
