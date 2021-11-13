@@ -12,7 +12,7 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100;
-  background: #fcfcfc;
+  background: #f6f6f6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

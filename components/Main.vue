@@ -1,7 +1,7 @@
 <template>
 <div>
   <h1>Психический статус</h1>
-  <div class="background-image"></div>
+  <!-- <div class="background-image"></div> -->
   <div class="content">
     <div class="main">
       <div class="animate__animated animate__fadeInDown">

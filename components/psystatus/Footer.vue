@@ -75,6 +75,7 @@ export default ({
     },
     edit() {
         console.log('Редактирование')
+        this.$router.push('Editor')
     },
      async loadStatus () {
        if (this.$store.state.static.codes === '') {
