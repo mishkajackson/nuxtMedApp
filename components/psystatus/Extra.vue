@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div v-if="$store.state.static.codes != '' && $store.state.static.codes != 'Z00'">
+        <div v-if="$store.state.static.codes != ''">
           <div class="animate__animated animate__fadeInUp">
 <h2 style="margin-top: 10px; margin-left: 20px">Дополнительно</h2>
     <div class="additionally">
@@ -14,7 +14,7 @@
           </label>
         </div>
         <!-- ОРИЕНТАЦИЯ -->
-        <div>
+        <div v-if="$store.state.static.codes === 'F01' || $store.state.static.codes === 'F06'">
 <button v-bind:class="{ collapse_active: isOpen1 }"  class="btn-collapse" @click="isOpen1 = !isOpen1">Ориентация <span v-bind:class="{ arrow_active: isOpen1 }" class="arrow">&#10095;</span></button>
         <div v-if="isOpen1">
         <div class="toggle">
@@ -36,7 +36,7 @@
         <!-- ОРИЕНТАЦИЯ -->
 
         <!-- КОНТАКТ F01 F06 -->
-        <div v-if="diagnos === 'F01' || diagnos === 'F06'">
+        <div v-if="$store.state.static.codes === 'F01' || $store.state.static.codes === 'F06'">
         <button v-bind:class="{ collapse_active: isOpen2 }"  class="btn-collapse" @click="isOpen2 = !isOpen2">Контакт <span v-bind:class="{ arrow_active: isOpen2 }" class="arrow">&#10095;</span></button>
         <div v-if="isOpen2">
         <div class="toggle">
@@ -77,7 +77,10 @@
           </div>
         </div>
         <!-- КОНТАКТ F01 F06 -->
-       <button v-bind:class="{ collapse_active: isOpen2 }"  class="btn-collapse" @click="isOpen2 = !isOpen2">Контакт <span v-bind:class="{ arrow_active: isOpen2 }" class="arrow">&#10095;</span></button>
+       
+        <!-- КОНТАКТ F20 -->
+      <div v-if="$store.state.static.codes === 'F20'">
+<button v-bind:class="{ collapse_active: isOpen2 }"  class="btn-collapse" @click="isOpen2 = !isOpen2">Контакт <span v-bind:class="{ arrow_active: isOpen2 }" class="arrow">&#10095;</span></button>
         <div v-if="isOpen2">
         <div class="toggle">
           <span class="span-toggle">Малопродуктивный контакт</span>
@@ -115,13 +118,11 @@
           </label>
         </div>
           </div>
-        <!-- КОНТАКТ F20 -->
-      <div v-if="diagnos === 'F20'">
-
 
       </div>
         <!-- КОНТАКТ F20 -->
-        <button v-bind:class="{ collapse_active: isOpen3 }"  class="btn-collapse" @click="isOpen3 = !isOpen3">Двигательная сфера <span v-bind:class="{ arrow_active: isOpen3 }" class="arrow">&#10095;</span></button>
+        <div v-if="$store.state.static.codes === 'F01' || $store.state.static.codes === 'F06'">
+ <button v-bind:class="{ collapse_active: isOpen3 }"  class="btn-collapse" @click="isOpen3 = !isOpen3">Двигательная сфера <span v-bind:class="{ arrow_active: isOpen3 }" class="arrow">&#10095;</span></button>
                   <div v-if="isOpen3">
         <div class="toggle">
           <span class="span-toggle">Передвигается с трудом</span>
@@ -138,9 +139,11 @@
           </label>
         </div>
       </div>
+        </div>
+       
 
       <!-- ФИЗ ОТПР. -->
-      <div v-if="diagnos === 'F01'">
+      <div v-if="$store.state.static.codes === 'F01'">
       <button v-bind:class="{ collapse_active: isOpen4 }"  class="btn-collapse" @click="isOpen4 = !isOpen4">Физиологические отправления <span v-bind:class="{ arrow_active: isOpen4 }" class="arrow">&#10095;</span></button>
                   <div v-if="isOpen4">
         <div class="toggle">

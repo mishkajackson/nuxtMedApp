@@ -10,7 +10,7 @@
 <div class="animate__animated animate__fadeInDown">
 <PsystatusSyndrome/>
       </div>
- <PsystatusExtra/>
+ <Extra/>
   <PsystatusFooter/>
     </div>
  

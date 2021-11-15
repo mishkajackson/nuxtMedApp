@@ -128,6 +128,9 @@ var self = this;
       for (let i = 0; i < this.$store.state.status.psystatus.length; i++) {
       this.resultat.push(this.$store.state.status.psystatus[i][Math.floor(Math.random() * this.$store.state.status.psystatus[i].length)]);
     };
+    if (this.$store.state.static.opt1) {
+      this.resultat.unshift('~bПсихический статус:b& ')
+    }
     },
   }
 })
